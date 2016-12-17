@@ -1,0 +1,203 @@
+BEGIN, YES;
+
+
+PROJECT,    HPC Cluster, Nadia Aly, 12/01/16;
+
+
+ATTRIBUTES:	1, jobType:
+	   
+		2, TimeIn:
+	   
+	 	3, jobTime:
+	  
+		4, num_cores:
+	    
+		5, jobID: 
+            
+		6, nodeType;
+
+
+
+VARIABLES: 	check_09_12_ID, 0:
+		check_03_08_ID, 0:
+		
+		check_wh03_wh44_ID, 0:
+		
+		check_wh45_wh52_ID, 0:
+		
+		check_ty01_ty60_ID,0:
+		
+		check_ty61_ty72_ID,0:
+		
+		check_va01_va10_ID,0:
+		
+		check_vx03_vx28_ID,0:
+		
+		check_vx29_vx36_ID,0:
+
+
+		job_count, 0;	  
+
+
+
+
+
+QUEUES:	    	Buffer_reserved_wh01_wh02, LVF(num_cores):
+	    
+		Buffer_reserved_hu01_hu02, LVF(num_cores):
+	    
+		Buffer_reserved_vx01_vx02, LVF(num_cores):
+	    
+		Buffer_ty01_ty60, LVF(num_cores):
+            
+		Buffer_ty61_ty72, LVF(num_cores):
+            
+		Buffer_hu03_hu08, LVF(num_cores):
+            
+		Buffer_hu09_hu12, LVF(num_cores):
+            
+		Buffer_wh03_wh44, LVF(num_cores):
+            
+		Buffer_wh45_wh52, LVF(num_cores):
+            
+		Buffer_vx03_vx28, LVF(num_cores):
+            
+		Buffer_vx29_vx36, LVF(num_cores):
+            
+		Buffer_va01_va10, LVF(num_cores):
+ 	    
+		root_Buffer_reserved_wh01_wh02:
+	    
+		root_Buffer_reserved_hu01_hu02:
+	    
+		root_Buffer_reserved_vx01_vx02:
+	    
+		root_Buffer_ty01_ty60:
+            
+		root_Buffer_ty61_ty72:
+            
+		root_Buffer_hu03_hu08:
+            
+		root_Buffer_hu09_hu12:
+            
+		root_Buffer_wh03_wh44:
+            
+		root_Buffer_wh45_wh52:
+            
+		root_Buffer_vx03_vx28:
+            
+		root_Buffer_vx29_vx36:
+            
+		root_Buffer_va01_va10;
+
+
+
+RESOURCES:  
+		reserved_wh01_wh02, 16:
+	    
+		reserved_hu01_hu02, 16:
+	    
+		reserved_vx01_vx02, 24:
+	    
+		ty01_ty60, 240:
+            
+		ty61_ty72, 48:
+            
+		hu03_hu08, 48:
+            
+		hu09_hu12, 32:
+            
+		wh03_wh44, 352:
+            
+		wh45_wh52, 64:           
+		vx03_vx28, 336:
+            
+		vx29_vx36, 96:
+            
+		va01_va10, 160;
+ 
+
+
+
+DSTATS:     NR(reserved_wh01_wh02), Reserved wh01_wh02 Utilization:
+	    			
+		NR(reserved_hu01_hu02), Reserved_hu01_hu02 Utilization:
+	    
+		NR(reserved_vx01_vx02), Reserved vx01_vx02 Utilization:
+	    
+		NR(ty01_ty60), ty01_ty60 Utilization:
+            
+		NR(ty61_ty72), ty61_ty72 Utilization:
+            
+		NR(hu03_hu08), hu03_hu08 Utilization:
+            
+		NR(hu09_hu12), hu09_hu12 Utilization:
+            
+		NR(wh03_wh44), wh03_wh44 Utilization:
+            
+		NR(wh45_wh52), wh45_wh52 Utilization:
+            
+		NR(vx03_vx28), vx03_vx28 Utilization:
+            
+		NR(vx29_vx36), vx29_vx36 Utilization:
+            
+		NR(va01_va10), va01_va10 Utilization:
+		NQ(Buffer_reserved_wh01_wh02):
+		NQ(Buffer_reserved_hu01_hu02):
+		NQ(Buffer_reserved_vx01_vx02):
+		NQ(Buffer_ty01_ty60):
+		NQ(Buffer_ty61_ty72):
+            
+		NQ(Buffer_hu03_hu08):
+            
+		NQ(Buffer_hu09_hu12):
+            
+		NQ(Buffer_wh03_wh44):
+            
+		NQ(Buffer_wh45_wh52):
+            
+		NQ(Buffer_vx03_vx28):
+            
+		NQ(Buffer_vx29_vx36):
+            
+		NQ(Buffer_va01_va10);
+ 	    
+
+COUNTERS: 1, check_queue;
+
+
+TALLIES:   	1, reserved_wh01_wh02_WaitTime:
+	  
+		2, reserved_hu01_hu02_WaitTime:
+	  
+ 		3, reserved_vx01_vx02_WaitTime:
+           
+		4, ty01_ty60_WaitTime:
+           
+		5, ty61_ty72_WaitTime:
+           
+		6, hu03_hu08_WaitTime:
+           
+		7, hu09_hu12_WaitTime:
+           
+		8, wh03_wh44_WaitTime:
+           
+		9, wh45_wh52_WaitTime:
+           
+		10, vx03_vx28_WaitTime:
+           
+		11, vx29_vx36_WaitTime:
+           
+		12, va01_va10_WaitTime;
+
+
+
+
+
+
+REPLICATE,  10,0, 60000000,,,604800;
+
+
+
+END;
+

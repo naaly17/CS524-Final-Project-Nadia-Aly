@@ -1,0 +1,609 @@
+BEGIN;
+      			CREATE, 1: CONT(0.56,0, 0.69, 1, 0.70,3,0.71,8, 0.72,17, 0.73, 29,0.74, 44,0.75, 58,0.84,59, 
+					0.90, 60,0.91, 61,0.92,85, 0.93,120, 0.94, 134,0.95,206, 0.96,317, 0.97, 512,
+					0.98, 946, 1.0, 2268):
+		
+			
+			MARK(TimeIn);
+			ASSIGN:	nodeType=DISC(0.05,1,0.1,2,0.15,3,0.2,4,0.25,5,0.30,6,0.35,7,0.40,8,0.45,9,0.50,10, 0.75,11,0.80,12,1.0,13):
+				job_count = job_count+1:
+				jobType=1:
+				jobID = job_count:
+              			jobTime=CONT(0.04,1,0.23,2, 0.31,3, 0.35,4, 0.4,5,0.43,6, 0.47, 7, 0.5, 8, 0.53,9, 0.54, 61, 0.55, 63, 0.56, 66, 					0.57, 120, 0.58, 126, 0.59, 183, 0.6, 241, 0.61, 247, 0.62, 309, 0.63, 422, 0.64, 489, 0.65, 606, 0.66, 724, 0.67, 843, 0.7, 1203, 0.72, 1449, 0.75, 1927, 0.76, 2160, 0.78, 2707.44, 0.8, 3421, 0.82, 4322, 0.84, 5581, 0.86, 6848, 0.88, 8645, 0.9, 11886, 0.92, 14169, 0.94, 31575.36, 0.96, 59641, 0.98, 82081.2,0.99, 160800.2, 1.0,648501):																								
+				NEXT(assign_cores);
+
+
+assign_cores      BRANCH, 1:
+			IF, (nodeType==1), assign_nodetyp1:
+			IF, (nodeType==2), assign_nodetyp2:
+			IF, (nodeType==3), assign_nodetyp3:
+			IF, (nodeType==4), assign_nodetyp4:	
+			IF, (nodeType==5), assign_nodetyp5:
+			IF, (nodeType==6), assign_nodetyp6:
+			IF, (nodeType==7), assign_nodetyp7:		
+			IF, (nodeType==8), assign_nodetyp8:	
+			IF, (nodeType==9), assign_nodetyp9:
+			IF, (nodeType==10), assign_nodetyp10:
+			IF, (nodeType==11), assign_nodetyp11:
+			IF, (nodeType==12), assign_nodetyp12:
+			IF, (nodeType==13), assign_nodetyp13;
+
+
+
+	
+assign_nodetyp1 	ASSIGN:
+				num_cores = DISC(0.0612,1, 0.6826, 2, 0.6873, 4, 0.9246, 8, 0.9286, 12, 0.9797, 16, 0.9876, 24, 0.9979, 
+					32,0.9989, 48, 1.0, 64):			
+				NEXT(reg_branch);
+
+assign_nodetyp2 	ASSIGN:
+				num_cores = DISC(0.005, 1, 0.675, 2, 0.942, 4, 1.0, 8):			
+				NEXT(reg_branch);
+
+assign_nodetyp3 	ASSIGN:
+				num_cores = DISC(0.388,1,0.460,4,0.848,8,0.894,16,0.962,32,1.0,64):			
+				NEXT(reg_branch);
+
+
+assign_nodetyp4 	ASSIGN:
+				num_cores = DISC(0.378, 1, 0.390,4,0.683,8,0.805,16,1,24):			
+				NEXT(reg_branch);
+
+assign_nodetyp5 	ASSIGN:
+				num_cores = DISC(0.251,1,0.302,2,0.401,6,0.933,8,0.961,12,0.973,16,0.975,18,0.999,32,1,64):			
+				NEXT(reg_branch);
+assign_nodetyp6 	ASSIGN:
+				num_cores = DISC(0.314,1, 0.343,2,0.355,4,0.394,6,0.406,8,0.408,10,0.598,12,0.600,14,0.615,16,0.617,18,
+						 0.663,24, 0.674, 32, 0.685, 36, 0.75, 48, 0.765, 60, 0.813, 72, 0.818, 84, 0.919, 96, 0.923, 108,
+							 0.956, 120, 0.968, 144, 0.969, 160, 0.971, 168, 0.971, 180, 0.980, 192, 0.984, 216, 
+								0.999, 304, 1.0, 360):			
+				NEXT(reg_branch);
+assign_nodetyp7 	ASSIGN:
+				num_cores = DISC(0.041, 1, 0.767,2, 0.773, 4, 0.778, 5, 0.782, 6, 0.786, 8, 0.796, 12, 0.887, 16,0.956, 
+						24, 0.959, 32, 0.977, 36, 0.993, 48,0.997, 60, 0.999, 96,  1.0, 144 ):			
+				NEXT(reg_branch);
+assign_nodetyp8 	ASSIGN:
+				num_cores = DISC(0.116, 1, 0.887, 2, 0.892, 4, 0.897, 6, 0.903, 8, 0.976, 12, 0.982, 24, 0.991, 
+						 48, 0.994, 60, 0.999, 84, 1.0, 96 ):			
+				NEXT(reg_branch);
+			
+assign_nodetyp9 	ASSIGN:
+				num_cores = DISC(0.0684,1,0.0740,4,0.4092,12,0.466, 24, 0.486, 36, 0.892, 48, 0.901, 60, 0.926, 72, 
+						0.930, 84, 0.953, 96, 0.958, 108, 0.969, 120, 0.973, 144, 0.976, 168, 0.983, 180, 0.990, 192,
+						0.994, 204, 0.995, 264, 0.999, 300, 1.0, 360 ):
+ 			
+				NEXT(reg_branch);
+
+
+assign_nodetyp10 	ASSIGN:
+				num_cores = DISC(0.543, 1, 0.544, 4, 0.55, 12, 0.621, 16, 0.622, 24, 0.897, 32, 0.898, 36, 0.899, 40, 
+						0.909, 60, 0.912, 64, 0.913, 72, 0.958, 80, 0.960, 96, 0.999, 144, 1.0, 160):			
+				NEXT(reg_branch);				
+assign_nodetyp11 	ASSIGN:
+				num_cores = DISC(0.757, 1, 0.830, 2, 0.979, 3, 0.980, 12, 0.985, 16, 0.986, 20, 0.987, 32, 0.99, 40, 0.99, 60, 0.992, 80, 0.993, 100, 0.995, 140,
+						0.997, 160, 0.998, 200, 0.999, 216, 1.0, 240):			
+				NEXT(reg_branch);				
+assign_nodetyp12 	ASSIGN:
+				num_cores = DISC(0.134, 1, 0.983, 2, 0.997, 4, 0.998, 8, 0.999, 16, 1.0, 32):			
+				NEXT(reg_branch);				
+assign_nodetyp13 	ASSIGN:
+				num_cores = DISC(0.607, 1, 0.609, 4, 0.752, 8, 0.78, 16, 0.798, 24, 0.828, 32, 0.85, 40, 0.901, 48,
+							0.905, 56, 0.939, 64, 0.941, 72, 0.959, 80, 0.985, 96, 0.99, 120, 0.992, 128, 0.994, 144, 0.996, 160, 0.998, 184, 0.999, 240, 1.0, 280):			
+				NEXT(reg_branch);
+
+
+
+
+
+		CREATE, 2: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 	53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88,0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87,					104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=1:
+			NEXT(root_reserved_wh01_wh02);
+
+
+		CREATE, 2: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95,110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_reserved_hu01_hu02);
+
+		CREATE, 2: 86400:
+      			MARK(TimeIn);
+			ASSIGN:  				
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95,110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_reserved_vx01_vx02);
+
+
+		CREATE, 60: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_ty01_ty60);
+
+		CREATE, 12: 86400:
+      			MARK(TimeIn);
+      		ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_ty61_ty72);
+
+
+		CREATE, 6: 86400:
+      			MARK(TimeIn);
+      			ASSIGN: jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_hu03_hu08);
+
+		CREATE,4: 86400:
+      			MARK(TimeIn);
+      			ASSIGN: 
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_hu09_hu12);
+
+		CREATE,44: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_wh03_wh44);
+
+
+		CREATE,8: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_wh45_wh52);
+
+
+		
+		CREATE,28: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_vx03_vx28);
+
+	
+		CREATE,8: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_vx29_vx36);
+
+	
+
+		CREATE,10: 86400:
+      			MARK(TimeIn);
+      			ASSIGN:  
+				jobType=2:
+              			jobTime=CONT(0.11,1, 0.17,2, 0.21, 3, 0.24, 4, 0.25, 5, 0.26, 6,0.28, 7, 0.29, 10, 0.3, 14, 0.31, 15, 0.32, 16,0.34, 17, 0.35, 19, 0.36, 21, 0.37, 22, 0.38, 23, 0.39, 26, 0.4, 28, 0.41, 32, 0.42, 37, 0.43, 42, 0.45, 43, 				0.5,44, 0.52, 45, 0.53, 46, 0.54, 48, 0.55, 50, 0.56, 51, 0.57, 52, 0.58, 52, 0.6, 53, 0.62, 54, 0.63, 55, 0.64, 56,0.65, 57, 0.67, 58, 0.68, 59, 0.69, 60, 0.7, 61, 0.71, 62,0.72, 65, 0.73, 68, 0.74, 72, 0.75, 78, 0.76, 88, 					0.77,96,0.78, 97, 0.79, 100, 0.8, 102, 0.82, 103, 0.87, 104, 0.89, 105, 0.9, 106, 0.91, 108, 0.92, 109, 0.95, 					110, 0.96, 111, 0.97, 117, 0.98, 126, 0.99, 149, 1, 7688):
+				nodeType=2:
+			NEXT(root_va01_va10);
+
+
+
+
+reg_branch      	BRANCH,1 :
+				IF, jobTime<3600, reserved_branch:
+                 		ELSE, next_choice;
+
+reserved_branch 	BRANCH,1:
+				IF, (nodeType==3).OR.(nodeType==4).OR.(nodeType==5).OR.(nodeType==13), goto_reserved_wh01_wh02:
+				IF, (nodeType==1).OR.(nodeType==2),goto_reserved_hu01_hu02:
+				IF, (nodeType==7).OR.(nodeType==8).OR.(nodeType==9), goto_reserved_vx01_vx02:
+	      			ELSE, next_choice;	
+
+next_choice      	BRANCH, 3: 
+				IF, (nodeType==1), goto_hu03_hu08:
+				IF, (nodeType==1), goto_hu09_hu12:
+				IF, (nodeType==2), goto_hu09_hu12:
+				IF, (nodeType==3), goto_wh03_wh44:
+				IF, (nodeType==4), goto_wh45_wh52:
+				IF, (nodeType==5), goto_wh03_wh44:
+				IF, (nodeType==5), goto_wh45_wh52:
+				IF, (nodeType==6), goto_va01_va10:
+				IF, (nodeType==6), goto_vx03_vx28:
+				IF, (nodeType==6), goto_vx29_vx36:
+				IF, (nodeType==7), goto_vx03_vx28:
+				IF, (nodeType==8), goto_vx29_vx36:
+				IF, (nodeType==9), goto_vx03_vx28:
+				IF, (nodeType==9), goto_vx29_vx36:
+				IF, (nodeType==10), goto_va01_va10:
+				IF, (nodeType==11), goto_ty01_ty60:
+				IF, (nodeType==11), goto_ty61_ty72:
+				IF, (nodeType==12), goto_ty61_ty72:
+				IF, (nodeType==13), goto_wh03_wh44:
+				IF, (nodeType==13), goto_wh45_wh52:
+				IF, (nodeType==13), goto_hu03_hu08:
+				IF, (nodeType==13), goto_hu09_hu12;
+
+
+
+
+
+goto_reserved_wh01_wh02         QUEUE,  Buffer_reserved_wh01_wh02;
+				SEIZE, 2: reserved_wh01_wh02, num_cores;
+				TALLY: 1, INT(TimeIn);
+                        	DELAY: jobTime;
+                        	RELEASE: reserved_wh01_wh02, num_cores;
+             			DISPOSE;
+	
+goto_reserved_hu01_hu02 
+				QUEUE, Buffer_reserved_hu01_hu02;
+				SEIZE, 2: reserved_hu01_hu02, num_cores;
+				TALLY: 2, INT(TimeIn);
+                       		DELAY: jobTime;
+                       	 	RELEASE: reserved_hu01_hu02, num_cores;
+             			DISPOSE;
+
+
+goto_reserved_vx01_vx02 	QUEUE, Buffer_reserved_vx01_vx02;
+			  	SEIZE, 2: reserved_vx01_vx02, num_cores;
+				TALLY: 3, INT(TimeIn);
+                          	DELAY: jobTime;
+                          	RELEASE: reserved_vx01_vx02, num_cores;
+             			DISPOSE;	
+
+
+goto_ty01_ty60		        QUEUE, Buffer_ty01_ty60;
+ 		        	SEIZE, 2:ty01_ty60, num_cores;
+				ASSIGN: check_ty01_ty60_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==11, check_ty01_ty60_queue_11:
+				ELSE, continue_ty01_ty60;
+
+continue_ty01_ty60              TALLY: 4, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: ty01_ty60, num_cores;
+             			DISPOSE;
+
+goto_ty61_ty72			QUEUE, Buffer_ty61_ty72;
+ 		        	SEIZE, 2: ty61_ty72, num_cores;
+				ASSIGN: check_ty61_ty72_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==11, check_ty61_ty72_queue_11:
+				ELSE, continue_ty61_ty72;
+
+continue_ty61_ty72              TALLY: 5, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: ty61_ty72, num_cores;
+             			DISPOSE;
+
+goto_hu03_hu08			QUEUE, Buffer_hu03_hu08;
+ 		        	SEIZE, 2: hu03_hu08, num_cores;
+				ASSIGN: check_03_08_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==1, check_hu03_hu08_queue_1:
+				IF, nodeType==13, check_hu03_hu08_queue_13:
+				ELSE, continue_hu03_hu08;
+
+continue_hu03_hu08              TALLY: 6, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: hu03_hu08, num_cores;
+             			DISPOSE;
+
+goto_hu09_hu12			QUEUE, Buffer_hu09_hu12;
+ 		        	SEIZE, 2: hu09_hu12, num_cores;
+				ASSIGN: check_09_12_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==1, check_hu09_hu12_queue_1:
+				IF, nodeType==13, check_hu09_hu12_queue_13:
+
+				ELSE, continue_hu09_hu12;
+
+continue_hu09_hu12		TALLY: 7, INT(TimeIn);
+				
+				DELAY: jobTime;
+	                       	RELEASE: hu09_hu12, num_cores;
+             			DISPOSE;
+
+goto_wh03_wh44			QUEUE, Buffer_wh03_wh44;
+ 		        	SEIZE, 2: wh03_wh44, num_cores;
+				ASSIGN: check_wh03_wh44_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==5, check_wh03_wh44_queue_5:
+				IF, nodeType==13, check_wh03_wh44_queue_13:
+
+				ELSE, continue_wh03_wh44;
+
+continue_wh03_wh44		TALLY: 8, INT(TimeIn);
+				
+				DELAY: jobTime;
+                        	RELEASE: wh03_wh44, num_cores;
+             			DISPOSE;
+
+
+goto_wh45_wh52			QUEUE, Buffer_wh45_wh52;
+ 		        	SEIZE, 2: wh45_wh52, num_cores;
+				ASSIGN: check_wh45_wh52_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==13.OR.nodeType==5, check_wh45_wh52_queue_13:
+				ELSE, continue_wh45_wh52;
+
+continue_wh45_wh52		TALLY: 9, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: wh45_wh52, num_cores;
+             			DISPOSE;
+
+goto_vx03_vx28			QUEUE, Buffer_vx03_vx28;
+ 		        	SEIZE, 2: vx03_vx28, num_cores;
+				
+				ASSIGN: check_vx29_vx36_ID = jobID;
+				BRANCH, 1: 				
+				IF, (nodeType==6).OR.(nodeType==9), check_vx03_vx28_queue_6:
+				ELSE, continue_vx03_vx28;
+
+continue_vx03_vx28		TALLY: 10, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: vx03_vx28, num_cores;
+             			DISPOSE;
+
+goto_vx29_vx36			QUEUE, Buffer_vx29_vx36;
+ 		        	SEIZE, 2: vx29_vx36, num_cores;
+				ASSIGN: check_vx29_vx36_ID = jobID;
+				BRANCH,1:
+				IF,(nodeType==6).OR.(nodeType==9), check_vx29_vx36_queue_6:
+				ELSE, continue_vx29_vx36;
+
+continue_vx29_vx36		TALLY: 11, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: vx29_vx36, num_cores;
+             			DISPOSE;
+
+goto_va01_va10			QUEUE, Buffer_va01_va10;
+ 		        	SEIZE, 2: va01_va10, num_cores;
+				
+				ASSIGN: check_va01_va10_ID = jobID;
+				BRANCH, 1: 
+				IF, nodeType==6, check_va01_va10_queue_6:
+				
+				ELSE, continue_va01_va10;
+
+continue_va01_va10		TALLY: 12, INT(TimeIn);
+				DELAY: jobTime;
+                        	RELEASE: va01_va10, num_cores;
+             			DISPOSE;
+
+
+root_reserved_wh01_wh02         QUEUE, root_Buffer_reserved_wh01_wh02;
+				SEIZE, 1: reserved_wh01_wh02, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job1;
+				
+continue_job1	                DELAY: jobTime;
+                        	RELEASE: reserved_wh01_wh02, 8;
+             			DISPOSE;
+
+
+root_reserved_hu01_hu02         QUEUE, root_Buffer_reserved_hu01_hu02;
+				SEIZE, 1: reserved_hu01_hu02, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job2;		
+continue_job2	                DELAY: jobTime;
+                        	RELEASE: reserved_hu01_hu02, 8;
+             			DISPOSE;
+
+
+root_reserved_vx01_vx02         QUEUE, root_Buffer_reserved_vx01_vx02;
+				SEIZE, 1: reserved_vx01_vx02, 12;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job3;		
+continue_job3	                DELAY: jobTime;
+                        	RELEASE: reserved_vx01_vx02, 12;
+             			DISPOSE;
+
+root_ty01_ty60         		QUEUE, root_Buffer_ty01_ty60;
+				SEIZE, 1: ty01_ty60, 4;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job4;		
+continue_job4	                DELAY: jobTime;
+                        	RELEASE: ty01_ty60, 4;
+             			DISPOSE;
+
+root_ty61_ty72        		QUEUE, root_Buffer_ty61_ty72;
+				SEIZE, 1: ty61_ty72, 4;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job5;		
+continue_job5	                DELAY: jobTime;
+                        	RELEASE: ty61_ty72, 4;
+             			DISPOSE;
+
+
+
+
+root_hu03_hu08        		QUEUE, root_Buffer_hu03_hu08;
+				SEIZE, 1: hu03_hu08, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job6;		
+continue_job6	                DELAY: jobTime;
+                        	RELEASE: hu03_hu08, 8;
+             			DISPOSE;
+
+exit_job6                       COUNT: check_queue;
+				DISPOSE;
+
+root_hu09_hu12       		QUEUE, root_Buffer_hu09_hu12;
+				SEIZE, 1: hu09_hu12, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job7;		
+continue_job7	                DELAY: jobTime;
+                        	RELEASE: hu09_hu12, 8;
+             			DISPOSE;
+
+exit_jobs                       COUNT: check_queue;
+				DISPOSE;
+
+
+root_wh03_wh44      		QUEUE, root_Buffer_wh03_wh44;
+				SEIZE, 1: wh03_wh44, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job8;		
+continue_job8	                DELAY: jobTime;
+                        	RELEASE: wh03_wh44, 8;
+             			DISPOSE;
+
+root_wh45_wh52      		QUEUE, root_Buffer_wh45_wh52;
+				SEIZE, 1: wh45_wh52, 8;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job9;		
+continue_job9	                DELAY: jobTime;
+                        	RELEASE: wh45_wh52, 8;
+             			DISPOSE;
+
+root_vx03_vx28      		QUEUE, root_Buffer_vx03_vx28;
+				SEIZE, 1: vx03_vx28, 12;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job10;		
+continue_job10	                DELAY: jobTime;
+                        	RELEASE: vx03_vx28, 12;
+             			DISPOSE;
+
+root_vx29_vx36      		QUEUE, root_Buffer_vx29_vx36;
+				SEIZE, 1: vx29_vx36, 12;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job11;		
+continue_job11	                DELAY: jobTime;
+                        	RELEASE: vx29_vx36, 12;
+             			DISPOSE;
+
+root_va01_va10      		QUEUE, root_Buffer_va01_va10;
+				SEIZE, 1: va01_va10, 16;
+				BRANCH,1:
+                                IF, (TNOW-TimeIn)>86400, exit_jobs:
+                 		ELSE, continue_job12;		
+continue_job12	                DELAY: jobTime;
+                        	RELEASE: va01_va10, 16;
+             			DISPOSE;
+
+
+
+
+
+
+
+check_hu03_hu08_queue_1         SEARCH, Buffer_hu09_hu12: jobID==check_03_08_ID;
+				REMOVE: J, Buffer_hu09_hu12, exit_jobs:
+				NEXT(continue_hu03_hu08);
+
+check_hu03_hu08_queue_13        SEARCH, Buffer_wh03_wh44: jobID==check_03_08_ID;
+				REMOVE: J, Buffer_wh03_wh44, exit_jobs;
+				SEARCH, Buffer_wh45_wh52: jobID==check_03_08_ID;
+				REMOVE: J, Buffer_wh45_wh52, exit_jobs;
+				SEARCH, Buffer_hu03_hu08: jobID==check_03_08_ID;
+				REMOVE: J, Buffer_hu03_hu08, exit_jobs:
+				NEXT(continue_hu03_hu08);
+
+check_hu09_hu12_queue_1         SEARCH, Buffer_hu03_hu08: jobID==check_09_12_ID;
+				REMOVE: J, Buffer_hu03_hu08, exit_jobs:
+				NEXT(continue_hu09_hu12);
+
+check_hu09_hu12_queue_13        SEARCH, Buffer_wh03_wh44: jobID==check_09_12_ID;
+				REMOVE: J, Buffer_wh03_wh44, exit_jobs;
+				SEARCH, Buffer_wh45_wh52: jobID==check_09_12_ID;
+				REMOVE: J, Buffer_wh45_wh52, exit_jobs;
+				SEARCH, Buffer_hu03_hu08: jobID==check_09_12_ID;
+				REMOVE: J, Buffer_hu03_hu08, exit_jobs:
+				NEXT(continue_hu09_hu12);
+
+
+check_wh03_wh44_queue_5       	SEARCH, Buffer_wh45_wh52: jobID==check_wh03_wh44_ID;
+				REMOVE: J, Buffer_wh45_wh52, exit_jobs:
+				NEXT(continue_wh03_wh44);
+
+check_wh03_wh44_queue_13    	SEARCH, Buffer_hu09_hu12: jobID==check_wh03_wh44_ID;
+				REMOVE: J, Buffer_wh03_wh44, exit_jobs;
+				SEARCH, Buffer_wh45_wh52: jobID==check_wh03_wh44_ID;
+				REMOVE: J, Buffer_wh45_wh52, exit_jobs;
+				SEARCH, Buffer_hu03_hu08: jobID==check_wh03_wh44_ID;
+				REMOVE: J, Buffer_hu03_hu08, exit_jobs:
+				NEXT(continue_wh03_wh44);
+
+
+
+
+check_wh45_wh52_queue_13 	SEARCH, Buffer_wh03_wh44: jobID==check_wh45_wh52_ID;
+				REMOVE: J, Buffer_wh03_wh44, exit_jobs;
+				SEARCH, Buffer_hu09_hu12: jobID==check_wh45_wh52_ID;
+				REMOVE: J, Buffer_hu09_hu12, exit_jobs;
+				SEARCH, Buffer_hu03_hu08: jobID==check_wh45_wh52_ID;
+				REMOVE: J, Buffer_hu03_hu08, exit_jobs:
+				NEXT(continue_wh45_wh52);
+
+
+
+check_ty01_ty60_queue_11	SEARCH, Buffer_ty61_ty72: jobID==check_ty01_ty60_ID;
+				REMOVE: J, Buffer_ty61_ty72, exit_jobs:
+				NEXT(continue_ty01_ty60);
+
+
+
+check_ty61_ty72_queue_11        SEARCH, Buffer_ty01_ty60: jobID==check_ty61_ty72_ID;
+				REMOVE: J, Buffer_ty01_ty60, exit_jobs:
+				NEXT(continue_ty61_ty72);
+
+
+
+
+check_va01_va10_queue_6
+	 	SEARCH, Buffer_vx03_vx28: jobID==check_va01_va10_ID;
+				REMOVE: J, Buffer_vx03_vx28, exit_jobs;
+				
+				SEARCH, Buffer_vx29_vx36: jobID==check_va01_va10_ID;
+				REMOVE: J, Buffer_vx29_vx36, exit_jobs:
+				
+				NEXT(continue_va01_va10);
+
+
+
+check_vx03_vx28_queue_6
+	  	SEARCH, Buffer_va01_va10: jobID==check_vx03_vx28_ID;
+				REMOVE: J, Buffer_va01_va10, exit_jobs;
+				
+				SEARCH, Buffer_vx29_vx36: jobID==check_vx03_vx28_ID;
+				REMOVE: J, Buffer_vx29_vx36, exit_jobs:
+				
+				NEXT(continue_vx03_vx28);
+
+
+
+check_vx29_vx36_queue_6
+	 	SEARCH, Buffer_va01_va10: jobID==check_vx29_vx36_ID;
+				REMOVE: J, Buffer_va01_va10, exit_jobs;
+				
+				SEARCH, Buffer_vx03_vx28: jobID==check_vx29_vx36_ID;
+				REMOVE: J, Buffer_vx03_vx28, exit_jobs:
+				
+				NEXT(continue_vx29_vx36);
+
+
+END;
